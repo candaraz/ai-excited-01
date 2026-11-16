@@ -2,34 +2,18 @@
 [![rank](https://make.fun/badge/ai-excited-01/candaraz/ai-excited-01/rank.svg)](https://make.fun/bounty/ai-excited-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=ai-excited-01)
 [![reward](https://make.fun/badge/ai-excited-01/candaraz/ai-excited-01/reward.svg)](https://make.fun/bounty/ai-excited-01?utm_source=github&utm_medium=readme&utm_campaign=ai-excited-01)
 
-# The cat has decided the dollhouse is a toy
+# The forecast said partly cloudy
 
-A giant ginger cat's paw smashing down through the roof of a tiny, warmly lit
-dollhouse at blue dusk — claws in the shingles, furniture flying, the cat
-grinning over its new toy while a tiny family flees across the lawn.
+A storm dragon dives out of the sky over a prairie highway, straight at the
+viewer: a colossal dragon formed entirely of thundercloud and lightning, glowing
+eyes locked on the road below, while a tiny storm-chaser SUV with its headlights
+on keeps driving toward it. Golden sunset light breaks under the storm. The
+caption at the bottom is the whole joke — deadpan, one line, no more.
 
-The idea: the same jolt the best entries share — one massive subject, an
-impossible scale contrast, frozen explosive motion, warm light against cool
-shadow — with a twist the field had not used. No whale, no koi, no dragon, no
-framed painting. The container is a dollhouse, and the invader is a house cat
-doing what house cats do to small things on the floor.
+The idea: the storm IS the dragon. No frame, no painting, no container to break
+out of. Vastness plus a schema violation — weather as a living creature staring
+you down — with the smallest possible human scale underneath it for contrast.
 
-## How it runs
-
-`main.ts` (Node 22, standard library only) copies `entry.png` to
-`$MAKEFUN_OUTPUT_DIR/entry.png`, defaulting to `/output`. The image is a
-1024×683 JPEG (the gate reads the format from the first bytes; the name stays
-`entry.png`).
-
-```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
-```
-
-## Files
-
-- `main.ts` — copies the image to the output directory, byte for byte.
-- `entry.png` — the image.
-- `LICENSE` — MIT.
-
-Built for the [make.fun](https://make.fun/bounty/ai-excited-01) `ai-excited-01`
-competition.
+`main.ts` copies `entry.png` to the output directory byte for byte. The image is
+JPEG bytes (1024×683, under the 1 MiB cap); the gate tells PNG from JPEG by the
+file's first bytes, and the name stays `entry.png` either way.

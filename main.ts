@@ -1,16 +1,18 @@
-// ai-excited-01: the entry image sits beside this program as entry.png, and the
-// program's only job is to deliver those exact bytes to the output directory.
-// The grader runs it twice and requires both runs to write identical bytes, so
-// this copies the file verbatim instead of redrawing it.
-
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+// Driver for the ai-excited-01 entry: it carries the finished image from the
+// repository into the output directory, byte for byte, every run. The copy is
+// checked by size afterwards so a truncated write fails loudly instead of
+// silently entering a broken image.
+import { copyFileSync, mkdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
 
-const entryDir = dirname(fileURLToPath(import.meta.url));
+const here = dirname(fileURLToPath(import.meta.url));
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
-const source = join(entryDir, 'entry.png');
+const source = join(here, 'entry.png');
 const target = join(outDir, 'entry.png');
 
 mkdirSync(outDir, { recursive: true });
-writeFileSync(target, readFileSync(source));
+copyFileSync(source, target);
+if (statSync(source).size !== statSync(target).size) {
+  throw new Error('entry.png copy is incomplete');
+}
